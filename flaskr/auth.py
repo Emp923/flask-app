@@ -42,7 +42,7 @@ def register():
 def login():
     if request.method == 'POST':
         username = request.form['username']
-        password = request.from['password']
+        password = request.form['password']
         db = get_db()
         error = None
         user = db.execute(
@@ -56,7 +56,7 @@ def login():
 
         if error is None:
             session.clear()
-            session.['user_id'] = user['id']
+            session['user_id'] = user['id']
             return redirect(url_for('index'))
 
         flash(error)
